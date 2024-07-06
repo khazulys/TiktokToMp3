@@ -2,7 +2,9 @@ import telebot
 import time
 from TiktokToMp3 import TikTok_to_Mp3
 from telebot.types import ForceReply
+from keep_alive import keep_alive
 
+keep_alive()
 user_states = {}
 
 BOT_TOKEN = '7329754916:AAEaAy9N_LycAjcisyNuzY4WpzcZt_bVFnI'
@@ -55,5 +57,5 @@ def main_process(message):
     bot.send_chat_action(chat_id, "upload_audio")
     time.sleep(0.5)
     bot.send_audio(chat_id, audio, caption="This is your tiktok audio file!", reply_to_message_id=message.message_id)
-  
+
 bot.infinity_polling()
